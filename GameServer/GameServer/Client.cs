@@ -28,14 +28,14 @@ namespace GameServer
         {
             public TcpClient m_Socket;
 
-            private readonly int id;
-            private NetworkStream stream;
-            private Packet receivedData;
-            private byte[] receiveBuffer;
+            private readonly int m_ID;
+            private NetworkStream m_Stream;
+            private Packet m_ReceivedData;
+            private byte[] m_ReceiveBuffer;
 
             public TCP(int _id)
             {
-                id = _id;
+                m_ID = _id;
             }
 
             public void Connect(TcpClient _socket)
@@ -44,14 +44,14 @@ namespace GameServer
                 m_Socket.ReceiveBufferSize = dataBufferSize;
                 m_Socket.SendBufferSize = dataBufferSize;
 
-                stream = m_Socket.GetStream();
+                m_Stream = m_Socket.GetStream();
 
-                receivedData = new Packet();
-                receiveBuffer = new byte[dataBufferSize];
+                m_ReceivedData = new Packet();
+                m_ReceiveBuffer = new byte[dataBufferSize];
 
-                stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
+                m_Stream.BeginRead(m_ReceiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
 
-                ServerSend.Welcome(id, "Welcome to the server!");
+                ServerSend.Welcome(m_ID, "Welcome to the server!");
             }
 
             public void SendData(Packet _packet)
@@ -60,12 +60,12 @@ namespace GameServer
                 {
                     if (m_Socket != null)
                     {
-                        stream.BeginWrite(_packet.ToArray(), 0, _packet.Length(), null, null);
+                        m_Stream.BeginWrite(_packet.ToArray(), 0, _packet.Length(), null, null);
                     }
                 }
                 catch (Exception _ex)
                 {
-                    Console.WriteLine($"Error sending data to player {id} via TCP: {_ex}");
+                    Console.WriteLine($"Error sending data to player {m_ID} via TCP: {_ex}");
                 }
             }
 
@@ -73,23 +73,23 @@ namespace GameServer
             {
                 try
                 {
-                    int _byteLength = stream.EndRead(_result);
+                    int _byteLength = m_Stream.EndRead(_result);
                     if (_byteLength <= 0)
                     {
-                        // TODO: disconnect
+                        Server.s_Dic_Clients[m_ID].Disconnect();
                         return;
                     }
 
                     byte[] _data = new byte[_byteLength];
-                    Array.Copy(receiveBuffer, _data, _byteLength);
+                    Array.Copy(m_ReceiveBuffer, _data, _byteLength);
 
-                    receivedData.Reset(HandleData(_data));
-                    stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
+                    m_ReceivedData.Reset(HandleData(_data));
+                    m_Stream.BeginRead(m_ReceiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
                 }
                 catch (Exception _ex)
                 {
                     Console.WriteLine($"Error receiving TCP data: {_ex}");
-                    // TODO: disconnect
+                    Server.s_Dic_Clients[m_ID].Disconnect();
                 }
             }
 
@@ -97,33 +97,33 @@ namespace GameServer
             {
                 int _packetLength = 0;
 
-                receivedData.SetBytes(_data);
+                m_ReceivedData.SetBytes(_data);
 
-                if (receivedData.UnreadLength() >= 4)
+                if (m_ReceivedData.UnreadLength() >= 4)
                 {
-                    _packetLength = receivedData.ReadInt();
+                    _packetLength = m_ReceivedData.ReadInt();
                     if (_packetLength <= 0)
                     {
                         return true;
                     }
                 }
 
-                while (_packetLength > 0 && _packetLength <= receivedData.UnreadLength())
+                while (_packetLength > 0 && _packetLength <= m_ReceivedData.UnreadLength())
                 {
-                    byte[] _packetBytes = receivedData.ReadBytes(_packetLength);
+                    byte[] _packetBytes = m_ReceivedData.ReadBytes(_packetLength);
                     ThreadManager.ExecuteOnMainThread(() =>
                     {
                         using (Packet _packet = new Packet(_packetBytes))
                         {
                             int _packetId = _packet.ReadInt();
-                            Server.s_Dic_PacketHandlers[_packetId](id, _packet);
+                            Server.s_Dic_PacketHandlers[_packetId](m_ID, _packet);
                         }
                     });
 
                     _packetLength = 0;
-                    if (receivedData.UnreadLength() >= 4)
+                    if (m_ReceivedData.UnreadLength() >= 4)
                     {
-                        _packetLength = receivedData.ReadInt();
+                        _packetLength = m_ReceivedData.ReadInt();
                         if (_packetLength <= 0)
                         {
                             return true;
@@ -137,6 +137,15 @@ namespace GameServer
                 }
 
                 return false;
+            }
+
+            public void Disconnect()
+            {
+                m_Socket.Close();
+                m_Stream = null;
+                m_ReceivedData = null;
+                m_ReceiveBuffer = null;
+                m_Socket = null;
             }
         }
 
@@ -175,6 +184,11 @@ namespace GameServer
                     }
                 });
             }
+
+            public void Disconnect()
+            {
+                m_EndPoint = null;
+            }
         }
 
         public void SendIntoGame(string iPlayerName)
@@ -199,6 +213,16 @@ namespace GameServer
                     ServerSend.SpawnPlayer(_client.m_ID,m_Player);
                 }
             }
+        }
+
+        public void Disconnect()
+        {
+            Console.WriteLine($"{m_TCP.m_Socket.Client.RemoteEndPoint} has disconnected.");
+
+            m_Player = null;
+
+            m_TCP.Disconnect();
+            m_UDP.Disconnect();
         }
     }
 }

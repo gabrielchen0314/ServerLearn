@@ -29,7 +29,7 @@ public class ClientSend : MonoBehaviour
         }
     }
 
-    internal static void PlayerMovement(bool[] iInputs)
+    public static void PlayerMovement(bool[] iInputs)
     {
         using (Packet _packet = new Packet((int)ClientPackets.playerMovement))
         {
@@ -41,6 +41,16 @@ public class ClientSend : MonoBehaviour
             _packet.Write(GameManager.s_Dic_Players[Client.s_instance.m_MyID].transform.rotation);
 
             SendUDPData(_packet);
+        }
+    }
+
+    public static void PlayerShoot( Vector3 iFacing)
+    {
+        using (Packet _packet = new Packet((int)ClientPackets.playerShoot))
+        {
+            _packet.Write(iFacing);
+
+            SendTCPData(_packet);
         }
     }
     #endregion

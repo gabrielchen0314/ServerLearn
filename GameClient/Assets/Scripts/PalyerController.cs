@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class PalyerController : MonoBehaviour
 {
+    public Transform m_CameraTransform;
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            ClientSend.PlayerShoot(m_CameraTransform.forward);
+        }
+    }
     private void FixedUpdate()
     {
         SendInputToServer();
@@ -17,6 +25,7 @@ public class PalyerController : MonoBehaviour
             Input.GetKey(KeyCode.S),
             Input.GetKey(KeyCode.A),
             Input.GetKey(KeyCode.D),
+            Input.GetKey(KeyCode.Space),
         };
 
         ClientSend.PlayerMovement(_inputs);

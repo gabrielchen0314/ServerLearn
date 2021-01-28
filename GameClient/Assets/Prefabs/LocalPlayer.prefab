@@ -146,6 +146,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ID: 0
   m_UserName: 
+  m_Health: 0
+  m_MaxHealth: 100
+  m_Model: {fileID: 3923162656705349586}
 --- !u!114 &1552743633747265737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ec9e39b5613cb47bbde02b034ab84e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_CameraTransform: {fileID: 8482195539185090014}
 --- !u!1 &7548877874213471654
 GameObject:
   m_ObjectHideFlags: 0

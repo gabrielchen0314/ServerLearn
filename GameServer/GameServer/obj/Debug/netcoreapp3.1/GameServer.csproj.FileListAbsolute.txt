@@ -11,3 +11,16 @@ C:\Users\gachen0314\source\repos\GameServer\GameServer\bin\Debug\netcoreapp3.1\G
 C:\Users\gachen0314\source\repos\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.dll
 C:\Users\gachen0314\source\repos\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.pdb
 C:\Users\gachen0314\source\repos\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.genruntimeconfig.cache
+D:\working_\Unity2018.4.25f1\ServerLearnWork\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.exe
+D:\working_\Unity2018.4.25f1\ServerLearnWork\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.deps.json
+D:\working_\Unity2018.4.25f1\ServerLearnWork\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.runtimeconfig.json
+D:\working_\Unity2018.4.25f1\ServerLearnWork\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.runtimeconfig.dev.json
+D:\working_\Unity2018.4.25f1\ServerLearnWork\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.dll
+D:\working_\Unity2018.4.25f1\ServerLearnWork\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.pdb
+D:\working_\Unity2018.4.25f1\ServerLearnWork\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.csprojAssemblyReference.cache
+D:\working_\Unity2018.4.25f1\ServerLearnWork\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.AssemblyInfoInputs.cache
+D:\working_\Unity2018.4.25f1\ServerLearnWork\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.AssemblyInfo.cs
+D:\working_\Unity2018.4.25f1\ServerLearnWork\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.csproj.CoreCompileInputs.cache
+D:\working_\Unity2018.4.25f1\ServerLearnWork\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.dll
+D:\working_\Unity2018.4.25f1\ServerLearnWork\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.pdb
+D:\working_\Unity2018.4.25f1\ServerLearnWork\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.genruntimeconfig.cache

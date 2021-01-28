@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "W0iRk5g2eJOsIX6qe682ddkGwkGn3JQlIkv6PR5ujZlXm9mJ9uwy7HmFqj7blNEc9vn7jQVb+RWfTwMH5g9ZUA==",
+  "dgSpecHash": "hqkfpvObyR3cvUtVH3GMJJgk9RUtETaDbYtbYerx6Cpz35SyZsusI6sHCESspHMAR2b982CXxe8DOHRi4SsKJQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gachen0314\\source\\repos\\GameServer\\GameServer\\GameServer.csproj",
+  "projectFilePath": "D:\\working_\\Unity2018.4.25f1\\ServerLearnWork\\GameServer\\GameServer\\GameServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gachen0314\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
   ],

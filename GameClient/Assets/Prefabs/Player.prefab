@@ -46,6 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ID: 0
   m_UserName: 
+  m_Health: 0
+  m_MaxHealth: 100
+  m_Model: {fileID: 3923162656705349586}
 --- !u!1 &7548877874213471654
 GameObject:
   m_ObjectHideFlags: 0

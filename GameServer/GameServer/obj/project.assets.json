@@ -73,11 +73,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gachen0314\\source\\repos\\GameServer\\GameServer\\GameServer.csproj",
+      "projectUniqueName": "D:\\working_\\Unity2018.4.25f1\\ServerLearnWork\\GameServer\\GameServer\\GameServer.csproj",
       "projectName": "GameServer",
-      "projectPath": "C:\\Users\\gachen0314\\source\\repos\\GameServer\\GameServer\\GameServer.csproj",
+      "projectPath": "D:\\working_\\Unity2018.4.25f1\\ServerLearnWork\\GameServer\\GameServer\\GameServer.csproj",
       "packagesPath": "C:\\Users\\gachen0314\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gachen0314\\source\\repos\\GameServer\\GameServer\\obj\\",
+      "outputPath": "D:\\working_\\Unity2018.4.25f1\\ServerLearnWork\\GameServer\\GameServer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gachen0314\\AppData\\Roaming\\NuGet\\NuGet.Config",
