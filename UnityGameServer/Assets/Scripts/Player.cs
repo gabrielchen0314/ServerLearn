@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float m_fGravity = -9.81f;
     public float m_fMoveSpeed = 5f;
     public float m_fJumpSpeed = 5f;
+    public float m_ThrowForce = 600f;
     public float m_Health;
     public float m_MaxHealth = 100f;
     public int m_ItemAmount = 0;
@@ -92,12 +93,35 @@ public class Player : MonoBehaviour
 
     public void Shoot(Vector3 iViewDirection)
     {
+        if (m_Health <= 0)
+        {
+            return;
+        }
+
         if(Physics.Raycast(m_ShootOrigin.position,iViewDirection, out RaycastHit _hit, 25f))
         {
             if (_hit.collider.CompareTag("Player"))
             {
                 _hit.collider.GetComponent<Player>().TakeDamage(50f);
             }
+            else if (_hit.collider.CompareTag("Enemy"))
+            {
+                _hit.collider.GetComponent<Enemy>().TakeDamage(50f);
+            }
+        }
+    }
+
+    public void ThrowItem(Vector3 iViewDirection)
+    {
+        if (m_Health <= 0f)
+        {
+            return;
+        }
+
+        if(m_ItemAmount > 0)
+        {
+            m_ItemAmount--;
+            NetworkManager.s_Instance.InstantiateProjectile(m_ShootOrigin).Initialize(iViewDirection, m_ThrowForce, m_ID);
         }
     }
 

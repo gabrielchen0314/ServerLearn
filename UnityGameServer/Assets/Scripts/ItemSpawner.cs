@@ -22,7 +22,7 @@ public class ItemSpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider iCollider)
     {
-        if (iCollider.CompareTag("Player"))
+        if (m_IsHasItem && iCollider.CompareTag("Player"))
         {
             Player _Player = iCollider.GetComponent<Player>();
             if(_Player.IsAttemptPickupItem())

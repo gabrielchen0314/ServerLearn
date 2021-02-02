@@ -215,6 +215,11 @@ public class Client
         {
             ServerSend.CreateItemSpawner(m_ID, _ItemSpawner.m_SpawnerID, _ItemSpawner.transform.position, _ItemSpawner.m_IsHasItem);
         }
+
+        foreach(Enemy _Enemy in Enemy.s_Dic_enemies.Values)
+        {
+            ServerSend.SpaenEnemy(m_ID,_Enemy);
+        }
     }
 
     public void Disconnect()

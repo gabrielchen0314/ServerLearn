@@ -36,5 +36,12 @@ public class ServerHandle
 
         Server.s_Dic_Clients[_fromClient].m_Player.Shoot(_ShootDirection);
     }
+
+    public static void PlayerThorwItem(int _fromClient, Packet iPacked)
+    {
+        Vector3 _ShootDirection = iPacked.ReadVector3();
+
+        Server.s_Dic_Clients[_fromClient].m_Player.ThrowItem(_ShootDirection);
+    }
 }
 

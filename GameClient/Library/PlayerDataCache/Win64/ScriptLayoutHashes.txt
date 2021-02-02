@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-D:/working_/Unity2018.4.25f1/ServerLearnWork/GameClient/Build/GameClient.exe
+D:/MyWork/Unity2018.4.25f1/ServerLearnWork/GameClient/Build/GameClient.exe
 SceneListBegin?
 Assets/Scenes/Main.unity
 SceneListEnd?
@@ -98,7 +98,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 201e3fde670b00545944bb3db215c80a UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-c856d6a943f69a879e29385088e21a65 Assembly-CSharp.dll:.PlayerManager
+c01fffc450c6c48b94beedeab263c598 Assembly-CSharp.dll:.PlayerManager
 4e9333594897a1fb8b136ad2eae996c7 Unity.TextMeshPro.dll:TMPro.TMP_SubMeshUI
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -116,8 +116,9 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 b8a5e8091ab0b8861d2add371082c5e0 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
+9f4b321aeb5d02d684ed4c8461e057b8 Assembly-CSharp.dll:.ItemSpawner
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
-c3a8fb88ce71ee915304dcbb6cbac8b5 Assembly-CSharp.dll:.GameManager
+d28f18a7c5f386396f23015b27035b35 Assembly-CSharp.dll:.GameManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 05c26a69c1fde3f08133e03cc006af91 Assembly-CSharp.dll:.UIManager
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
@@ -162,3 +163,4 @@ d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 df434544c9f7b33d1cc7e635b180d279 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
+a2d3399fcfd664e5afeecd828eea787a Assembly-CSharp.dll:.ProjectileManager

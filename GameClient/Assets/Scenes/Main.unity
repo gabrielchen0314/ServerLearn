@@ -1338,6 +1338,10 @@ MonoBehaviour:
     type: 3}
   m_ItemSpawnerPrefab: {fileID: 8290215185202462814, guid: 7e56ca5c66eedaf4fa4423a88170fa7d,
     type: 3}
+  m_ProjectilePrefab: {fileID: 4766001312894317877, guid: 1566f4171e2aa5e4da43dd08d5238dfe,
+    type: 3}
+  m_EnemyPrefab: {fileID: 5348045017735911859, guid: 30aa9de14d0a10e4088e91149749aacb,
+    type: 3}
 --- !u!4 &2123883776
 Transform:
   m_ObjectHideFlags: 0

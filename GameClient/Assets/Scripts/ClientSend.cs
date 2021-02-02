@@ -53,5 +53,15 @@ public class ClientSend : MonoBehaviour
             SendTCPData(_packet);
         }
     }
+
+    public static void PlayerThrowItem(Vector3 iFacing)
+    {
+        using (Packet _packet = new Packet((int)ClientPackets.playerThrowItem))
+        {
+            _packet.Write(iFacing);
+
+            SendTCPData(_packet);
+        }
+    }
     #endregion
 }

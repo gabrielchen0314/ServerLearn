@@ -119,6 +119,7 @@ public class Server
                 { (int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived },
                 { (int)ClientPackets.playerMovement, ServerHandle.PlayerMovent },
                 { (int)ClientPackets.playerShoot, ServerHandle.PlayerShoot },
+                { (int)ClientPackets.playerThrowItem, ServerHandle.PlayerThorwItem },
             };
         Debug.Log("Initialized packets.");
     }

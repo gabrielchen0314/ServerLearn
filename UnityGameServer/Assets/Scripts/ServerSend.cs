@@ -167,5 +167,84 @@ public class ServerSend
             SendTCPDataToAll(_packet);
         }
     }
+
+    public static void SpawnProjectile(Projectile iProjectile, int iThrowByPlayer)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.spawnPlayer))
+        {
+            _packet.Write(iProjectile.m_ID);
+            _packet.Write(iThrowByPlayer);
+            _packet.Write(iThrowByPlayer);
+
+            SendTCPDataToAll(_packet);
+        }
+    }
+
+    public static void ProjectilePosition(Projectile iProjectile)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.projectilePosition))
+        {
+            _packet.Write(iProjectile.m_ID);
+            _packet.Write(iProjectile.transform.position);
+
+            SendUDPDataToAll(_packet);
+        }
+    }
+
+    public static void ProjectileExploded(Projectile iProjectile)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.projectileExploded))
+        {
+            _packet.Write(iProjectile.m_ID);
+            _packet.Write(iProjectile.transform.position);
+
+            SendTCPDataToAll(_packet);
+        }
+    }
+
+    public static void SpaenEnemy(Enemy iEnemy)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.spawnEnemy))
+        {
+            SendTCPDataToAll(SpawnEnemy_Data(iEnemy,_packet));
+        }
+    }
+
+    public static void SpaenEnemy(int iClient, Enemy iEnemy)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.spawnEnemy))
+        {
+            SendTCPDataToAll(iClient, SpawnEnemy_Data(iEnemy, _packet));
+        }
+    }
+
+    private static Packet SpawnEnemy_Data(Enemy iEnemy,Packet iPacket)
+    {
+        iPacket.Write(iEnemy.m_ID);
+        iPacket.Write(iEnemy.transform.position);
+        return iPacket;
+    }
+
+    public static void EnemyPsoition(Enemy iEnemy)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.enemyPositon))
+        {
+            _packet.Write(iEnemy.m_ID);
+            _packet.Write(iEnemy.transform.position);
+
+            SendUDPDataToAll(_packet);
+        }
+    }
+
+    public static void EnemyHealth(Enemy iEnemy)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.enemyHealth))
+        {
+            _packet.Write(iEnemy.m_ID);
+            _packet.Write(iEnemy.m_Health);
+
+            SendTCPDataToAll(_packet);
+        }
+    }
     #endregion
 }

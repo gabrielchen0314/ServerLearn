@@ -11,6 +11,11 @@ public class PalyerController : MonoBehaviour
         {
             ClientSend.PlayerShoot(m_CameraTransform.forward);
         }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            ClientSend.PlayerThrowItem(m_CameraTransform.forward);
+        }
     }
     private void FixedUpdate()
     {
